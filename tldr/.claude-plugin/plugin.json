@@ -1,0 +1,6 @@
+{
+  "name": "tldr",
+  "version": "0.1.0",
+  "description": "Adds a super simple one-line TL;DR under every long Claude answer",
+  "license": "MIT"
+}

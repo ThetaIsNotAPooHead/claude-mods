@@ -1,0 +1,10 @@
+{
+  "name": "claude-mods",
+  "owner": { "name": "ThetaIsNotAPooHead" },
+  "metadata": { "description": "Small Claude Code mods: lifetime token counter, usage limit countdown, simple TL;DR lines", "version": "0.1.0" },
+  "plugins": [
+    { "name": "lifetime-tokens", "source": "./lifetime-tokens", "description": "Counts every token you've ever used in Claude Code, with a /tokens breakdown" },
+    { "name": "usage-limits", "source": "./usage-limits", "description": "Shows how much of your 5-hour and weekly limits you've used and when they reset" },
+    { "name": "tldr", "source": "./tldr", "description": "Adds a super simple one-line TL;DR under every long Claude answer" }
+  ]
+}
