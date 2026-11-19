@@ -1,6 +1,6 @@
 {
     "name":  "lifetime-tokens",
-    "version":  "0.2.0",
+    "version":  "0.2.1",
     "description":  "Counts every token you\u0027ve used in Claude Code, what it would cost at API prices, and your Token Wrapped",
     "types":  "./types/index.d.ts"
 }

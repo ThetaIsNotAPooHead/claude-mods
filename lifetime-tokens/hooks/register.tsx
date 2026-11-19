@@ -152,7 +152,7 @@ async function report($: EngineInterface): Promise<string> {
     `Counted since ${since ? day(since) : 'unknown'} (your oldest kept transcript)` +
       (scannedAt ? `, last scan ${new Date(scannedAt).toISOString().slice(0, 16).replace('T', ' ')} UTC` : ''),
     'Fresh tokens (everything but cache reads): ' + fmt(all - s.cacheRead),
-    'See what it would cost: /cost · Your year in tokens: /wrapped',
+    'See what it would cost: /apicost · Your year in tokens: /wrapped',
   ].join('\n')
 }
 
@@ -201,9 +201,9 @@ export const register: Register = on => {
     await $.command.register({
       name: 'tokens',
       description: 'Show every token you have used in Claude Code',
-      argumentHint: '[rescan]',
+      argumentHint: '[rescan|cost]',
     })
-    await $.command.register({ name: 'cost', description: 'What your Claude Code usage would cost at API prices' })
+    await $.command.register({ name: 'apicost', description: 'What your Claude Code usage would cost at API prices' })
     await $.command.register({ name: 'wrapped', description: 'Your Token Wrapped: your year in tokens' })
     await publish($)
     $.clock.after(3000, () => {
@@ -222,6 +222,7 @@ export const register: Register = on => {
   })
 
   on('command.run', { command: 'tokens' }, async ($, e) => {
+    if (e.args.trim() === 'cost') return { text: await costReport($) }
     if (e.args.trim() === 'rescan') {
       const failed = await rescan($)
       if (failed) return { text: failed }
@@ -229,7 +230,7 @@ export const register: Register = on => {
     return { text: await report($) }
   })
 
-  on('command.run', { command: 'cost' }, async $ => ({ text: await costReport($) }))
+  on('command.run', { command: 'apicost' }, async $ => ({ text: await costReport($) }))
 
   on('command.run', { command: 'wrapped' }, async $ => {
     const built = await buildWrapped($)

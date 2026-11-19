@@ -59,7 +59,7 @@ test('a finished turn adds to the total, /tokens and /cost report it', async ($,
   // 100*4 + 2000*20 + 1M*0.2 + 5000*8 (1-hour cache write) = $0.2804
   expect(tokens.text).toContain('API value: $0.28')
 
-  const cost = await $.command.run({ command: 'cost', args: '' } as never)
+  const cost = await $.command.run({ command: 'apicost', args: '' } as never)
   expect(cost.text).toContain('AT API PRICES: $0.28')
   expect(cost.text).toContain('opus-5-5')
 })
