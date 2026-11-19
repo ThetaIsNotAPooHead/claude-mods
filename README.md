@@ -6,7 +6,7 @@ Three small [Claude Code mods](https://code.claude.com/docs/en/plugins/mods) tha
 |---|---|
 | **lifetime-tokens** | `🪙 13.9B lifetime tokens` in the footer, and `/tokens` for a breakdown by type and model. It scans your Claude Code transcripts (`~/.claude/projects`) and keeps counting live. Transcripts Claude Code cleans up later still count. Needs Node.js on your PATH for the scan. |
 | **usage-limits** | `🟢 5h 23% · resets 2h 10m` and `🟡 week 78% · resets 3d 4h` in the footer, and `/limits` for exact reset times. Shows up on Claude plans after your first reply. |
-| **tldr** | A dead-simple one-liner under every long answer: `💡 TL;DR: Claude fixed the login bug and the tests pass now.` Written by Haiku, so each one uses a small amount of your usage. |
+| **tldr** | A dead-simple one-liner under every long answer: `💡 TL;DR: Claude fixed the login bug and the tests pass now.` Written by Haiku, so each one uses a small amount of your usage. Type `/tldr` any time to sum up the last answer, whatever its length. |
 
 ## Install
 
